@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../.store"
+		},
+		{
+			"path": "../../Docs"
+		},
+		{
+			"path": "../../../Production"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"VSPC"
+		]
+	}
+}

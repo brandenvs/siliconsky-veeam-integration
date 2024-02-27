@@ -1,0 +1,19 @@
+<!--Fetch_Layout File-->
+{% extends 'base.html' %}
+
+<!--Set_Layout Application Name-->
+{% block app_name %}User Authentication{% endblock %}
+
+<!--Set_Layout Page Title-->
+{% block title %}{{ request.user.first_name }}Profile{% endblock %}
+
+<!--Body Content-->
+{% block content %}
+<a class="fw-light fs-6" title="ET go home?" href="{% url 'web_application:home' %}"><<< Back Home</a>
+<p class="fs-3 mb-0">Welcome Back {{ request.user.first_name|title }}! 
+    <p class="fs-6 ms-4">You are logged in as {{ request.user.username }}.</p>
+</p>
+{% if user.is_staff  %}
+<a href="{% url 'web_application:user_create' %}">Create User</a>
+{% endif %}
+{% endblock %}

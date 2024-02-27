@@ -1,0 +1,32 @@
+<!--Fetch_Layout File-->
+{% extends 'base.html' %}
+
+<!--Set_Layout Page Title-->
+{% block title %}Silicon Sky - Storage Quota{% endblock %}
+
+<!--Body Content-->
+{% block content %}
+<style>
+    .watermark {
+        position: fixed;
+        bottom: 1.5rem;
+        left: 0;
+        width: 100%;
+        font-size: 3rem;
+        color: rgba(124, 124, 124, 0.226);
+        z-index: -1;
+        user-select: none;
+        pointer-events: none;
+    }
+</style>
+
+<div class="row g-2">
+    <!-- Watermark -->
+    <p class="watermark">Silicon Sky Veeam Dashboard</p>
+    
+    <div class="col">
+        <p class="fs-4">Welcome back, {{ request.user.first_name|title }}.</p>
+    </div>
+</div>
+
+{% endblock %}
