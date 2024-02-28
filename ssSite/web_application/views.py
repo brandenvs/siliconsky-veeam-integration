@@ -15,12 +15,13 @@ def user_login(request):
 
 def authenticate_user(request):
     username = request.POST['username']
-    password = request.POST['password']    
+    password = request.POST['password']
 
-    # username = str(_username).lower()
+    # Lowercase username
+    username_lower = str(username).lower()
 
     # Authorize user
-    user = authenticate(username=username, password=password)
+    user = authenticate(username=username_lower, password=password)
     # User is NOT Authenticated
     if user is None:
         # Update result parameter to pass to view
