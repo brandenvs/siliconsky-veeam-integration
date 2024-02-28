@@ -82,3 +82,5 @@ def create_user(request):
 def logout_user(request):
     logout(request)
     return redirect('web_application:user_login')
+
+# EOF Branden van Staden
