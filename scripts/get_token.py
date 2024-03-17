@@ -16,6 +16,12 @@ def get_token():
         "password": "S1l1conSky@DEV",
     }
 
+    # payload = {
+    #     "grant_type": "password",
+    #     "username": r"SILICONSKY\svc_veeamlab",
+    #     "password": "S1l1conSky@DEV",
+    # }
+    
     headers = {
         "X-Client-Version": "3.4"
     }
@@ -25,7 +31,7 @@ def get_token():
         
         json_response = response.json()
         
-        # print(json_response)
+        print(json_response)
         
         bearer_token = json_response["access_token"]
         
@@ -85,40 +91,43 @@ def create_user():
 
     bearer_token = get_token()
     
+    query = {
+  "select": "[{\"propertyPath\":\"json\"}]"
+}
     payload = {
-    "organizationUid": "0a093973-274b-4df8-83e2-2316dee0c9a9",
+    "organizationUid": "3110a9da-7ea1-4857-98cb-c3e5c46b6dd6", # Instance Uid: /organizations/companies
     "role": "CompanySubtenant",
-    "mfaPolicyStatus": "Enabled",
+    "mfaPolicyStatus": "Disabled",
     "profile": {
         "firstName": "John",
         "lastName": "Brown",
-        "title": "Mr.",
-        "email": "j.brown@exonco.com",
+        "title": "Unknown",
+        "email": "brandenconnected@gmail.com",
         "address": "",
         "phone": "301 329 9338"
     },
     "credentials": {
-        "userName": "subtenant",
-        "password": "Password1"
+        "userName": "testUser",
+        "password": "Phil017bvsbvs123"
     },
     "backupResource": {
-        "siteUid": "0107365a-60f9-422a-832b-585db173d356",
-        "companySiteBackupResourceUid": "886a9551-f365-4ef7-9bcc-c227bd288369",
+        "siteUid": "b65acaf4-e282-4096-9e56-8c840442a3a3", # /organizations/companies/sites
+        "companySiteBackupResourceUid": "",
         "description": "",
         "vcdUserId": "",
-        "resourceFriendlyName": "CloudRepo",
-        "storageQuota": "1073741824",
-        "isStorageQuotaUnlimited": ""
+        "resourceFriendlyName": "VCC-LAB",
+        "storageQuota": 1073741824,
+        "isStorageQuotaUnlimited": "false"
     }
     }
 
     headers = {
-        "Content-Type": "application/json",
+
         "Authorization": f"Bearer {bearer_token}",
         "X-Client-Version": "3.4"
     }
 
-    response = session.post(url=url, data=payload, headers=headers)
+    response = session.post(url=url, json=payload, headers=headers, params=query)
 
 
     data = response.json()
@@ -140,5 +149,57 @@ def get_companies():
 
     data = response.json()
     print(data)
+    
+    '''
+    {
+        "meta": {
+        "pagingInfo": {
+            "total": 1,
+            "count": 1,
+            "offset": 0
+        }
+        },
+        "data": [
+        {
+            "instanceUid": "3110a9da-7ea1-4857-98cb-c3e5c46b6dd6",
+            "name": "Demo Zero One",
+            "status": "Active",
+            "resellerUid": None,
+            "subscriptionPlanUid": None,
+            "permissions": [
+            "REST"
+            ],
+            "isAlarmDetectEnabled": False,
+            "companyServices": {
+            "isBackupAgentManagementEnabled": False,
+            "isFileLevelRestoreEnabled": False,
+            "isBackupServerManagementEnabled": False,
+            "isVBPublicCloudManagementEnabled": False
+            },
+            "loginUrl": None,
+            "_embedded": {
+            "organization": None
+            }
+        }
+        ]
+    }
+    '''
 
-get_companies()
+def backup_servers():
+    url = "https://192.168.210.44:1280/api/v3/infrastructure/backupServers"
+
+
+    bearer_token = get_token()
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {bearer_token}",
+        "X-Client-Version": "3.4"
+    }
+
+    response = session.get(url, headers=headers)
+
+    data = response.json()
+    print(data)
+
+create_user()
