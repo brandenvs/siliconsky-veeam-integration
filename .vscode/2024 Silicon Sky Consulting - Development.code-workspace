@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Documents"
+		}
+	],
+	"settings": {
+    "terminal.integrated.confirmOnKill": "always",
+    "terminal.integrated.tabs.title": "${process}",
+    "terminal.integrated.fontFamily": "Consolas",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }
+}
