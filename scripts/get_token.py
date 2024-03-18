@@ -111,8 +111,8 @@ def create_user():
         "password": "Phil017bvsbvs123"
     },
     "backupResource": {
-        "siteUid": "b65acaf4-e282-4096-9e56-8c840442a3a3", # /organizations/companies/sites
-        "companySiteBackupResourceUid": "",
+        "siteUid": "b65acaf4-e282-4096-9e56-8c840442a3a3", # siteUid: /organizations/companies/sites
+        "companySiteBackupResourceUid": "a2b21ca5-55cc-4616-8b39-6270c0741b26", # InstanceUid: /organizations/companies/sites/backupResources
         "description": "",
         "vcdUserId": "",
         "resourceFriendlyName": "VCC-LAB",
@@ -130,7 +130,7 @@ def create_user():
     response = session.post(url=url, json=payload, headers=headers, params=query)
 
 
-    data = response.json()
+    data = response
     print(data)
 
 def get_companies():
