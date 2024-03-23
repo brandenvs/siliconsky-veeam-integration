@@ -1,3 +1,9 @@
 # .gitignore
 
+# Temp file database
+
 /ssSite/db.sqlite3
+
+# Enviromental variables 
+
+.env

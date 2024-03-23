@@ -4,8 +4,10 @@ import requests
 
 # Session - Provides Connection Pooling Persistence
 session = requests.Session()
+
 # Disable Verification
 session.verify = False
+
 # Prevent Tracking
 session.trust_env = False
 
@@ -235,7 +237,3 @@ def backup_servers():
 
     data = response.json()
     print(data)
-
-
-create_company()
-# print(get_token())

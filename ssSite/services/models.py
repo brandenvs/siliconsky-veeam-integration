@@ -3,27 +3,37 @@ from django.db import models
 
 
 class VSPCUser(AbstractUser):
-    organizationUid = models.CharField(max_length=255)
-    role = models.CharField(max_length=255)
-    mfaPolicyStatus = models.CharField(max_length=255)
-    firstName = models.CharField(max_length=100)
-    lastName = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    email = models.EmailField()
-    address = models.CharField(max_length=255, null=True, blank=True)
-    phone = models.CharField(max_length=20)
-    userName = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    siteUid = models.CharField(max_length=100)
-    companySiteBackupResourceUid = models.CharField(max_length=100)
-    description = models.TextField(null=True, blank=True)
-    vcdUserId = models.CharField(max_length=100, null=True, blank=True)
-    resourceFriendlyName = models.CharField(max_length=100)
-    storageQuota = models.BigIntegerField()
-    isStorageQuotaUnlimited = models.BooleanField()
+    storage_quota = models.BigIntegerField(default=1073741824)
 
-    def __str__(self):
-        return f"{self.firstName} {self.lastName} - {self.email}"
+
+# class VSPCUser(AbstractUser):
+#     organizationUid = models.CharField(
+#         max_length=255, default="3110a9da-7ea1-4857-98cb-c3e5c46b6dd6"
+#     )
+#     role = models.CharField(max_length=255, default="Company Owner")
+#     mfaPolicyStatus = models.CharField(max_length=255, default="Disabled")
+#     firstName = models.CharField(max_length=100)
+#     lastName = models.CharField(max_length=100)
+#     title = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     address = models.CharField(max_length=255, null=True, blank=True)
+#     phone = models.CharField(max_length=20)
+#     userName = models.CharField(max_length=100)
+#     password = models.CharField(max_length=100)
+#     siteUid = models.CharField(
+#         max_length=100, default="b65acaf4-e282-4096-9e56-8c840442a3a3"
+#     )
+#     companySiteBackupResourceUid = models.CharField(
+#         max_length=100, default="a2b21ca5-55cc-4616-8b39-6270c0741b26"
+#     )
+#     description = models.TextField(null=True, blank=True)
+#     vcdUserId = models.CharField(max_length=100, null=True, blank=True)
+#     resourceFriendlyName = models.CharField(max_length=100, default="BCloudRepo")
+#     storageQuota = models.BigIntegerField(default=1073741824)
+#     isStorageQuotaUnlimited = models.BooleanField(default=False)
+
+#     def __str__(self):
+#         return f"{self.firstName} {self.lastName} - {self.email}"
 
 
 class Organization(models.Model):

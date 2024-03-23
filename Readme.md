@@ -4,4 +4,4 @@ Silicon Sky workspace.
 
 Project development phase is **Initiating**.
 
-A site needs to create a company
+A site needs to create tenant which gives access to a **Backup Portal**

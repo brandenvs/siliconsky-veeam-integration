@@ -3,7 +3,7 @@ import time
 from django.conf import settings
 from requests import Session
 
-from .models import TenantUser
+from .models import VSPCUser
 
 
 class SessionManager:
@@ -53,10 +53,9 @@ class TenantUserManager:
         self.response = response
 
     def create_apiuser(self):
-        api_user = TenantUser(user=self.request.user)
+        vspc_user = VSPCUser(user=self.request.user)
 
-        api_user.save()
-        print("[SUCCESS] Created API User!")
+        vspc_user.save()
 
     def auth_credentials():
         # Define Auth URL

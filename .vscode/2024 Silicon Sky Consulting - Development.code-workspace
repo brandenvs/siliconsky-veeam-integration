@@ -1,22 +1,36 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../Documents"
-		}
-	],
-	"settings": {
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "path": "../../Documents"
+    },
+    {
+      "path": "../../../../Backup/.documents/app/finance-api"
+    },
+    {
+      "path": "../../../BCFA/2023 BCFA FortiCloud - Fortiwan Development"
+    }
+  ],
+  "settings": {
+    "isort.args": ["--profile", "black"],
     "terminal.integrated.confirmOnKill": "always",
     "terminal.integrated.tabs.title": "${process}",
     "terminal.integrated.fontFamily": "Consolas",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "[python]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      },
+      "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "cSpell.words": [
+      "vspc"
+    ],
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
     }
   }
 }

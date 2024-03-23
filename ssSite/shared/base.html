@@ -161,7 +161,7 @@
                 <div class="header-content p-2">
                     <a class="h1 header-title" href="/">Veeam Quota Allocation</a>
                     <p class="header-subtitle">Platform Demo -
-                        <a href="https://github.com/BrandenSysoutHelloWorld/Silicon Sky-deployed/releases" target="_blank">
+                        <a href="#" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-tag-fill" viewBox="0 0 16 16">
                                 <path
@@ -173,6 +173,7 @@
             </div>
             <div class="col-md-6 col-12">
                 <div class="header-buttons border-top p-2">
+                    {% if user.is_authenticated %}
                     <a class="btn btn-info disable" href="#NEWS" title="Read/download latest feature release (PDF)" target="_blank" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#latestFeatures">
                         <div class="bell-container">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-bell"
@@ -203,6 +204,7 @@
                                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
                         </svg>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
