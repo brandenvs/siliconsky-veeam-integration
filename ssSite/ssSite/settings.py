@@ -124,11 +124,11 @@ STATIC_URL = "static/"
 # STATIC_ROOT
 STATIC_ROOT = os.path.join(BASE_DIR.parent.relative_to(BASE_DIR.parent), "static/")
 
-# STATICFILES_DIRS = [
-#     os.path.join(STATIC_ROOT, "css/"),
-#     os.path.join(STATIC_ROOT, "js/"),
-#     os.path.join(STATIC_ROOT, "res/"),
-# ]
+STATICFILES_DIRS = [
+    os.path.join(STATIC_ROOT, "css/"),
+    os.path.join(STATIC_ROOT, "js/"),
+    os.path.join(STATIC_ROOT, "res/"),
+]
 
 # Handle errors exclusively on Command Line(even in production, this is safe!)
 LOGGING = {

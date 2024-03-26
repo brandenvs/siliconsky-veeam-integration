@@ -6,13 +6,6 @@ app_name = "backup_portal"
 
 urlpatterns = [
     # Views
-    path("", views.create_user, name="create")
-    # path("", views.index, name="home"),
-    # path("login/", views.user_login, name="user_login"),
-    # path("register/", views.user_create, name="user_create"),
-    # path("profile/", views.user_profile, name="user_profile"),
-    # # Actions
-    # path("auth/", views.authenticate_user, name="user_authenticate"),
-    # path("registering/", views.create_user, name="create_user"),
-    # path("logout/", views.logout_user, name="user_logout"),
+    path("storage1/", views.index_1, name="demo1"),
+    path("storage2/", views.index_2, name="demo2"),
 ]
