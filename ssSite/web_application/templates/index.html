@@ -26,6 +26,8 @@
     
     <div class="col">
         <p class="fs-4">Welcome back, {{ request.user.first_name|title }}.</p>
+        <a href="{% url 'backup_portal:allocate_storage' %}">Working Demo</a>
+        <a href="{% url 'backup_portal:demo1' %}">Slider Demo</a>
     </div>
 </div>
 

@@ -1,12 +1,15 @@
 {
   "folders": [
     {
+      "name": "2024 Silicon Sky Consulting - Development",
       "path": ".."
     },
     {
+      "name": "Documents",
       "path": "../../Documents"
     },
     {
+      "name": "2023 BCFA FortiCloud - Fortiwan Development",
       "path": "../../../BCFA/2023 BCFA FortiCloud - Fortiwan Development"
     }
   ],

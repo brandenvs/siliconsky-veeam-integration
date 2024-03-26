@@ -40,7 +40,7 @@ def get_token():
 
 
 def create_company():
-    # url = "https://192.168.210.44:1280/api/v3/organizations/companies"
+    url = "https://192.168.210.44:1280/api/v3/organizations/companies"
 
     bearer_token = get_token()
 
@@ -57,17 +57,17 @@ def create_company():
         ),
     }
 
-    company_uid = "3110a9da-7ea1-4857-98cb-c3e5c46b6dd6"
+    # company_uid = "3110a9da-7ea1-4857-98cb-c3e5c46b6dd6"
 
-    url = (
-        "https://192.168.210.44:1280/api/v3/organizations/companies/"
-        + company_uid
-        + "/permissions"
-    )
+    # url = (
+    #     "https://192.168.210.44:1280/api/v3/organizations/companies/"
+    #     + company_uid
+    #     + "/permissions"
+    # )
 
-    payload = [
-        {"op": "add", "path": "/-/demo_zero_one", "value": "REST"},
-    ]
+    # payload = [
+    #     {"op": "add", "path": "/-/demo_zero_one", "value": "REST"},
+    # ]
 
     # session.headers = headers
     # response = session.patch(url, payload)
@@ -83,44 +83,44 @@ def create_company():
     data = response
     print(data.headers, response.json())
 
-    # payload = {
-    #     "resellerUid": None,
-    #     "organizationInput": {
-    #         "name": "Test-org",
-    #         "alias": "test-org",
-    #         "taxId": "643-70-9745",
-    #         "email": "j.doe@siliconsky.com",
-    #         "phone": "906-284-7082",
-    #         "country": 1,
-    #         "state": 22,
-    #         "countryName": "RSA",
-    #         "regionName": "Western Cape",
-    #         "city": "Cape Town",
-    #         "street": "123 Main road, Claremont",
-    #         "notes": None,
-    #         "zipCode": 7001,
-    #         "website": "www.bcodelabs.com",
-    #         "veeamTenantId": None,
-    #     },
-    #     "subscriptionPlanUid": None,
-    #     "permissions": ["REST"],
-    #     "isAlarmDetectEnabled": False,
-    #     "companyServices": {
-    #         "isBackupAgentManagementEnabled": True,
-    #         "isFileLevelRestoreEnabled": False,
-    #         "isBackupServerManagementEnabled": True,
-    #         "isVBPublicCloudManagementEnabled": True,
-    #     },
-    # }
+    payload = {
+        "resellerUid": None,
+        "organizationInput": {
+            "name": "Test-org",
+            "alias": "test-org",
+            "taxId": "643-70-9745",
+            "email": "j.doe@siliconsky.com",
+            "phone": "906-284-7082",
+            "country": 1,
+            "state": 22,
+            "countryName": "RSA",
+            "regionName": "Western Cape",
+            "city": "Cape Town",
+            "street": "123 Main road, Claremont",
+            "notes": None,
+            "zipCode": 7001,
+            "website": "www.bcodelabs.com",
+            "veeamTenantId": None,
+        },
+        "subscriptionPlanUid": None,
+        "permissions": ["REST"],
+        "isAlarmDetectEnabled": False,
+        "companyServices": {
+            "isBackupAgentManagementEnabled": True,
+            "isFileLevelRestoreEnabled": False,
+            "isBackupServerManagementEnabled": True,
+            "isVBPublicCloudManagementEnabled": True,
+        },
+    }
 
-    # query = {"select": '[{"propertyPath":"json"}]'}
+    query = {"select": '[{"propertyPath":"json"}]'}
 
-    # response = session.post(
-    #     url, headers=headers, json=payload, params=query, verify=False
-    # )
+    response = session.post(
+        url, headers=headers, json=payload, params=query, verify=False
+    )
 
-    # data = response.json()
-    # print(data)
+    data = response.json()
+    print(data)
 
 
 def create_user():
@@ -128,27 +128,27 @@ def create_user():
 
     bearer_token = get_token()
 
-    query = {"select": '[{"propertyPath":"json"}]'}
+    query = {"select": '[{"propertyPath":"string"}]'}
 
     headers = {
         "accept": "application/json",
-        "X-Request-id": "497f6eca-6276-4993-bfeb-43cbbbba6f35",
+        "X-Request-id": "497f6eca-6276-4993-bfeb-43cbbbba6f22",
         "Authorization": f"Bearer {bearer_token}",
     }
 
     data = {
         "organizationUid": "3110a9da-7ea1-4857-98cb-c3e5c46b6dd6",
-        "role": "Company Owner",
-        "mfaPolicyStatus": "Disable",
+        "role": "CompanySubtenant",
+        "mfaPolicyStatus": "Disabled",
         "profile": {
-            "firstName": "Test",
+            "firstName": "Branden",
             "lastName": "van Staden",
             "title": "Mr",
-            "email": "brands@siliconsky.com",
+            "email": "brands1@siliconsky.com",
             "address": None,
             "phone": "081 565 0206",
         },
-        "credentials": {"userName": "branden_van_staden", "password": "Markaway86#"},
+        "credentials": {"userName": "brandenvs123", "password": "Markaway86#"},
         "backupResource": {
             "siteUid": "b65acaf4-e282-4096-9e56-8c840442a3a3",
             "companySiteBackupResourceUid": "a2b21ca5-55cc-4616-8b39-6270c0741b26",
@@ -237,3 +237,7 @@ def backup_servers():
 
     data = response.json()
     print(data)
+
+
+get_token()
+# create_company()

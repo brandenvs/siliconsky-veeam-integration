@@ -53,11 +53,11 @@
             <input type="text" class="form-control" name="last_name" placeholder="Doe" required>
         </div>
         <div class="col-6">
-            <label class="form-label" for="username">Title</label>
-            <select class="form-select" aria-label="Default select example">
+            <label class="form-label" for="title">Title</label>
+            <select class="form-select" name="title" aria-label="Mr. / Mrs.">
                 <option selected>Open this select menu</option>
-                <option value="1">Mr.</option>
-                <option value="2">Mrs.</option>
+                <option value="1">Mr</option>
+                <option value="2">Mrs</option>
             </select>
         </div>
         <div class="col-6">
@@ -79,7 +79,7 @@
         </div>
         <div class="col-6">
             <label class="form-label" for="username">Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Username" required>
+            <input type="text" class="form-control disabled" name="username" placeholder="Username" value="{{ request.user.username }}" required>
         </div>
         <div class="col-6">
             <label class="form-label" for="password">Password</label>
@@ -94,18 +94,22 @@
             <input type="text" class="form-control" name="resource_name" placeholder="Cloud Repository" required>
         </div>
         <div class="col-6">
-            <label class="form-label" for="password">Storage Quota</label>
-            <input type="number" class="form-control" name="password" placeholder="**********" required>
+            <label class="form-label" for="resource_description">Description</label>
+            <input type="text" class="form-control" name="resource_description" placeholder="optional">
         </div>
         <div class="col-6">
+            <label class="form-label" for="vcd_user_id">VCD User ID</label>
+            <input type="text" class="form-control" name="vcd_user_id" placeholder="optional">
+        </div>
+        <div class="col-12">
             <div class="col-6">
-                <label class="form-label" for="username">Storage Quota</label>
-                <select class="form-select" aria-label="Default select example">
+                <label class="form-label" for="storage_quota">Storage Quota</label>
+                <select class="form-select" aria-label="Select a Storage Quota" name="storage_quota">
                     <option selected>Open this select menu</option>
-                    <option value="1">Basic (25 gigabytes)</option>
-                    <option value="2">Personal (100 gigabytes)</option>
-                    <option value="3">Professional (1 terabyte)</option>
-                    <option value="4">Enterprise (unlimited)</option>
+                    <option value="26843545600">Basic (25 gigabytes)</option>
+                    <option value="107374182400">Personal (100 gigabytes)</option>
+                    <option value="1000000000000">Professional (1 terabyte)</option>
+                    <option value="1000000000000">Enterprise (unlimited)</option>
                 </select>
             </div>
         </div>
