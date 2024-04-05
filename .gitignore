@@ -13,3 +13,8 @@
 
 /scripts/get_token.py
 /scripts/test_token_auth.py
+
+# Django static dirs
+
+/static/
+
