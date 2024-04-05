@@ -44,12 +44,10 @@ def user_profile(request):
     return render(request, "user.html")
 
 
-@login_required(login_url="web_application:user_login")
 def user_create(request):
     return render(request, "create_user.html")
 
 
-@login_required(login_url="web_application:user_login")
 def create_user(request):
     if request.method == "POST":
         # Fetch User Details from Web Page
