@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 
 <!--BASE FILE-->
 
@@ -14,14 +14,12 @@
     <!--Static Folder Served Directly(client)-->
     {% load static %}
 
-    <!-- Include D3.js from a CDN -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link href="{% static 'ui-sliders.css' %}" rel="stylesheet" />
 
-    <!-- Include venn.js from a CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.19"></script>
 
-    <!-- Include Chart.js from a CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
     <!--(API)GCP WebFont's-->
     <link
@@ -31,6 +29,7 @@
     <!--(CDN)Bootstrap-v5.3.2-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 
     <style>
         /* Custom CSS for the fixed footer */
@@ -161,19 +160,21 @@
                 <div class="header-content p-2">
                     <a class="h1 header-title" href="/">Veeam Quota Allocation</a>
                     <p class="header-subtitle">Platform Demo -
-                        <a href="https://github.com/BrandenSysoutHelloWorld/Silicon Sky-deployed/releases" target="_blank">
+                        <a href="#" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-tag-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>v1-demo
+                            </svg>DEMO ZERO
                         </a>
                     </p>
                 </div>
             </div>
             <div class="col-md-6 col-12">
                 <div class="header-buttons border-top p-2">
-                    <a class="btn btn-info disable" href="#NEWS" title="Read/download latest feature release (PDF)" target="_blank" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#latestFeatures">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-info disable" href="#NEWS" title="Read/download latest feature release (PDF)"
+                        target="_blank" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#latestFeatures">
                         <div class="bell-container">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-bell"
                                 viewBox="0 0 16 16">
@@ -185,7 +186,8 @@
                             <div class="soundwave"></div>
                         </div>
                     </a>
-                    <a class="btn btn-secondary" href="{% url 'web_application:user_profile' %}" title="Manage your Silicon Sky Account" target="_blank">
+                    <a class="btn btn-secondary" href="{% url 'web_application:user_profile' %}"
+                        title="Manage your Silicon Sky Account" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -203,6 +205,7 @@
                                 d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
                         </svg>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -228,13 +231,19 @@
     </footer>
 
     <!-- PopperJS v2.11.8 -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
 
     <!-- BootstrapJS v5.3.2 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 
     <!--(CDN)JQuery-v3.6.4-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+    <script src="{% static 'ui-sliders.js' %}" crossorigin="anonymous"></script>
 
     <!-- JavaScript Template Block -->
     {% block javascript %}{% endblock %}

@@ -1,4 +1,6 @@
-import requests, certifi, urllib3
+import certifi
+import requests
+import urllib3
 
 # Setup Session
 session = requests.Session()  # Provides Connection Pooling Persistence
@@ -6,42 +8,71 @@ session.verify = False  # Disable Verification
 session.trust_env = False  # Prevent Tracking
 
 
-url = "https://192.168.210.44:1280/api/v3/token"
+# Organizations
 
+url = "https://192.168.210.44:1280/api/v3/organizations"
 
-payload = {
-  "grant_type": "password",
-  "username": r"demo_zero_one\api_user",
-  "password": "D3v@VanSPython",
-  "refresh_token": "",
-  "mfa_token": "",
-  "mfa_code": "",
-  "code": "",
-  "public_key": "",
-  "userUid": ""
+query = {
+    "filter": '[{"property":"string","items":[{}],"operation":"in","collation":"ordinal","value":{}}]',
+    "sort": '[{"property":"string","direction":"ascending","collation":"ordinal"}]',
+    "limit": "100",
+    "offset": "0",
+    "select": '[{"propertyPath":"string"}]',
 }
 
 headers = {
-  "X-Client-Version": "3.4"
-  }
+    "X-Request-id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "X-Client-Version": "string",
+}
 
-try:
-  response = session.post(url=url, data=payload, headers=headers)
+response = requests.get(url, headers=headers, params=query)
 
-  if response.status_code != "200":
-    print('Try Again...')       
-    # Try again
-    response = session.post(url=url, data=payload, headers=headers)
-
-  print(response.headers)
-  print(response.status_code, end='\n') 
-  print(response.json(), end='\n')
-
-except Exception as ex:
-  print(ex)
+data = response.json()
+print(data)
 
 
+# USER CREATE
 
+url = "https://192.168.210.44:1280/api/v3/users"
+
+# query = {
+#   "select": "[{\"propertyPath\":\"string\"}]"
+# }
+
+payload = {
+    "organizationUid": "0a093973-274b-4df8-83e2-2316dee0c9a9",
+    "role": "CompanySubtenant",
+    "mfaPolicyStatus": "Enabled",
+    "profile": {
+        "firstName": "Test",
+        "lastName": "User",
+        "title": "Mr",
+        "email": "testuser@siliconsky.com",
+        "address": None,
+        "phone": "012 345 6789",
+    },
+    "credentials": {"userName": "python_testuser", "password": "Password1"},
+    "backupResource": {
+        "siteUid": "0107365a-60f9-422a-832b-585db173d356",
+        "companySiteBackupResourceUid": "886a9551-f365-4ef7-9bcc-c227bd288369",
+        "description": None,
+        "vcdUserId": None,
+        "resourceFriendlyName": "CloudRepo",
+        "storageQuota": 100,
+        "isStorageQuotaUnlimited": False,
+    },
+}
+
+headers = {
+    "Content-Type": "application/json",
+    "X-Request-id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "X-Client-Version": "string",
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+data = response.json()
+print(data)
 
 
 # import requests, certifi, urllib3
