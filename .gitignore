@@ -11,10 +11,9 @@
 
 # Sensitive development data(including scripts)
 
-/scripts/get_token.py
-/scripts/test_token_auth.py
+scripts
 
 # Django static dirs
 
-/static/
+ssSite/static
 

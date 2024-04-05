@@ -123,7 +123,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "static/"
 
 # STATIC_ROOT
-STATIC_ROOT = os.path.join(BASE_DIR.parent.relative_to(BASE_DIR.parent), "static/")
+STATIC_ROOT = os.path.join(BASE_DIR.parent.relative_to(BASE_DIR.parent), "static_root/")
 
 STATICFILES_DIRS = [
     os.path.join(STATIC_ROOT, "css/"),
