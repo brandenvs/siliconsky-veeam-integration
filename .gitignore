@@ -8,3 +8,8 @@
 
 .env
 .vscode/2024 Silicon Sky Consulting - Development.code-workspace
+
+# Sensitive development data(including scripts)
+
+/scripts/get_token.py
+/scripts/test_token_auth.py

@@ -4,7 +4,7 @@ import requests
 
 # Session - Provides Connection Pooling Persistence
 session = requests.Session()
-
+response = session.post(url, data)
 # Disable Verification
 session.verify = False
 

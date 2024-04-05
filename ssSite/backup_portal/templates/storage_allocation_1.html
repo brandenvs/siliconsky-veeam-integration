@@ -1,62 +1,65 @@
-{% extends 'base.html' %}
-{% block app_name %}Backup Portal{% endblock %}
-{% block title %}Backup Portal - Add Tenant{% endblock %}
-{% block content %}
+{% comment %} {% extends 'base.html' %} {% block app_name %}Backup Portal{% endblock %} {%
+block title %}Backup Portal - Add Tenant{% endblock %} {% block content %}
 <section id="veeam-sliders" class="clearfix">
-	<form id="backup-form">
-		<div class="sliders-wrap">
-			<label>Select Data Center:</label>
-			<div class="select-wrap">
-				<select id="region" name="idc">
-					<option value="ca">Los Angeles, CA</option>
-					<option value="az">Phoenix, AZ</option>
-					<option value="va">Ashburn, VA</option>
-					<option value="sg">Singapore, SG</option>
-					<option value="th">Bangkok, TH</option>
-					<option value="hk">Hong Kong, HK</option>
-				</select>
-			</div>
-			<div class="tb-wrap">
-				<h3>Total GB to Backup</h3>
-				<div id="gb-slider" class="slider"></div>
-				<input type="hidden" name="qty" value="2000">
-			</div>
-			<div class="contract-wrap">
-				<h3>Contract Term Length</h3>
-				<div id="term-slider" class="slider"></div>
-				<input type="hidden" name="period" value="1">
-			</div>
-		</div>
-		<div class="total-wrap">
-			<label>Select Currency:</label>
-			<div class="select-wrap">
-				<select id="currency-select">
-					<option value="USD">USD</option>
-					<option value="CNY">CNY</option>
-					<option value="THB">THB</option>
-				</select>
-			</div>
-			<div class="price-wrap">
-				<h3>Total:</h3>
-				<div id="total-price">
-					<span class="currency-symbol">$</span><span class="price">000.00</span> /m.
-				</div>
-				<div id="price-per-gb">
-					<span>$</span><span class="price">0.00</span> /GB
-					<input type="hidden" name="unit_price" value="0.12">
-				</div>
-				<button type="submit">Add To Cart</button>
-			</div>
-			<div class="contact-us">
-				<h3>Contact Us</h3>
-				<p>If you're interested in enterprise backup with over 10TB of space, please contact our sales agent for
-					a custom quote based on your needs.</p>
-				<a href="/contact/" class="btn" title="Contact Us">Contact Us</a>
-			</div>
-		</div>
-		<input name="discount_term" type="hidden">
-		<input name="id" value="621" type="hidden">
-		<input name="option" value="7688:53546" type="hidden">
-	</form>
+  <form id="backup-form">
+    <div class="sliders-wrap">
+      <label>Select Data Center:</label>
+      <div class="select-wrap">
+        <select id="region" name="idc">
+          <option value="ca">Los Angeles, CA</option>
+          <option value="az">Phoenix, AZ</option>
+          <option value="va">Ashburn, VA</option>
+          <option value="sg">Singapore, SG</option>
+          <option value="th">Bangkok, TH</option>
+          <option value="hk">Hong Kong, HK</option>
+        </select>
+      </div>
+      <div class="tb-wrap">
+        <h3>Total GB to Backup</h3>
+        <div id="gb-slider" class="slider"></div>
+        <input type="hidden" name="qty" value="2000" />
+      </div>
+      <div class="contract-wrap">
+        <h3>Contract Term Length</h3>
+        <div id="term-slider" class="slider"></div>
+        <input type="hidden" name="period" value="1" />
+      </div>
+    </div>
+    <div class="total-wrap">
+      <label>Select Currency:</label>
+      <div class="select-wrap">
+        <select id="currency-select">
+          <option value="USD">USD</option>
+          <option value="CNY">CNY</option>
+          <option value="THB">THB</option>
+        </select>
+      </div>
+      <div class="price-wrap">
+        <h3>Total:</h3>
+        <div id="total-price">
+          <span class="currency-symbol">$</span
+          ><span class="price">000.00</span> /m.
+        </div>
+        <div id="price-per-gb">
+          <span>$</span><span class="price">0.00</span> /GB
+          <input type="hidden" name="unit_price" value="0.12" />
+        </div>
+        <button type="submit">Add To Cart</button>
+      </div>
+      <div class="contact-us">
+        <h3>Contact Us</h3>
+        <p>
+          If you're interested in enterprise backup with over 10TB of space,
+          please contact our sales agent for a custom quote based on your needs.
+        </p>
+        <a href="/contact/" class="btn" title="Contact Us">Contact Us</a>
+      </div>
+    </div>
+    <input name="discount_term" type="hidden" />
+    <input name="id" value="621" type="hidden" />
+    <input name="option" value="7688:53546" type="hidden" />
+  </form>
 </section>
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+None
