@@ -11,9 +11,4 @@
 
 # Sensitive development data(including scripts)
 
-scripts
-
-# Django static dirs
-
-ssSite/static
-
+/ssSite/scripts
