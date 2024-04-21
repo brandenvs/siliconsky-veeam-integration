@@ -1,4 +1,6 @@
-import requests, certifi, urllib3
+import certifi
+import requests
+import urllib3
 
 # Setup Session
 session = requests.Session()  # Provides Connection Pooling Persistence

@@ -1,3 +1,19 @@
 # .gitignore
 
+# Temp file database
+
 /ssSite/db.sqlite3
+
+# Enviromental variables 
+
+.env
+.vscode/2024 Silicon Sky Consulting - Development.code-workspace
+
+# Sensitive development data(including scripts)
+
+scripts
+
+# Django static dirs
+
+ssSite/static
+

@@ -1,21 +1,21 @@
-from django.shortcuts import render, redirect
-
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.urls import reverse
+
 
 def user_login(request):
     if request.user.is_authenticated:
-        return redirect('web_application:home')
+        return redirect("web_application:home")
     else:
-        return render(request, 'login.html')
+        return render(request, "login.html")
+
 
 def authenticate_user(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST["username"]
+    password = request.POST["password"]
 
     # Lowercase username
     username_lower = str(username).lower()
@@ -27,35 +27,37 @@ def authenticate_user(request):
         # Update result parameter to pass to view
         error_message = "Invalid Username or Password!"
         # Construct reverse URL for Http Response Redirect
-        return render(request, 'login.html', {'error_message': error_message})
+        return render(request, "login.html", {"error_message": error_message})
     else:
-        # Login user 
+        # Login user
         login(request, user)
-        return HttpResponseRedirect(reverse('web_application:home'))
+        return HttpResponseRedirect(reverse("web_application:home"))
 
-@login_required(login_url='web_application:user_login')
+
+@login_required(login_url="web_application:user_login")
 def index(request):
-    return render(request, 'index.html')
+    return render(request, "index.html")
 
-@login_required(login_url='web_application:user_login')
+
+@login_required(login_url="web_application:user_login")
 def user_profile(request):
-    return render(request, 'user.html')
+    return render(request, "user.html")
 
-@login_required(login_url='web_application:user_login')
+
 def user_create(request):
-    return render(request, 'create_user.html')
+    return render(request, "create_user.html")
 
-@login_required(login_url='web_application:user_login')
+
 def create_user(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         # Fetch User Details from Web Page
-        fullname = request.POST.get('fullname')
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        full_name = str(fullname).split(' ')
+        fullname = request.POST.get("fullname")
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        full_name = str(fullname).split(" ")
 
-        first_name	= full_name.pop(0)
-        last_name = ' '.join(full_name)
+        first_name = full_name.pop(0)
+        last_name = " ".join(full_name)
 
         try:
             # Create a New User instance and Set Attributes
@@ -68,19 +70,18 @@ def create_user(request):
             # Save User to Database
             new_user.save()
             # Redirect User to Profile
-            return redirect('web_application:home')   
-        
+            return redirect("web_application:home")
+
         # Catch the exception
         except Exception as ex:
             # Render Create User View and, Pass the Error Message to View
-            return render(request, 'create_user.html', {'error_message': str(ex)})
-    
-    # Render Initial Create User View
-    return render(request, 'create_user.html')
+            return render(request, "create_user.html", {"error_message": str(ex)})
 
-@login_required(login_url='web_application:user_login')
+    # Render Initial Create User View
+    return render(request, "create_user.html")
+
+
+@login_required(login_url="web_application:user_login")
 def logout_user(request):
     logout(request)
-    return redirect('web_application:user_login')
-
-# EOF Branden van Staden
+    return redirect("web_application:user_login")
